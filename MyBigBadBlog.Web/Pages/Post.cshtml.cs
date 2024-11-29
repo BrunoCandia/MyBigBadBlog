@@ -1,10 +1,12 @@
 using Markdig;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.OutputCaching;
 using MyBigBadBlog.Common;
 
 namespace MyBigBadBlog.Web.Pages
 {
+    [OutputCache(PolicyName = "Post")]
     public class PostModel : PageModel
     {
         private readonly IPostRepository _postRepository;

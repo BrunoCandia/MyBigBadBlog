@@ -20,7 +20,8 @@ builder.Services.AddOutputCache(options =>
 {
     options.AddBasePolicy(policy => policy.Tag("ALL").Expire(TimeSpan.FromMinutes(5)));
     options.AddPolicy("Home", policy => policy.Tag("Home").Expire(TimeSpan.FromSeconds(30)));
-    options.AddPolicy("Post", policy => policy.Tag("Post").SetVaryByRouteValue("slug").Expire(TimeSpan.FromSeconds(30)));
+    options.AddPolicy("Post", policy => policy.Tag("Post").SetVaryByRouteValue("id").Expire(TimeSpan.FromSeconds(30)));
+    ////options.AddPolicy("Post", policy => policy.Tag("Post").SetVaryByRouteValue("slug").Expire(TimeSpan.FromSeconds(30)));
 });
 
 // Add services to the container.

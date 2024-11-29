@@ -18,7 +18,7 @@ namespace MyBigBadBlog.Data.Postgres
 
             if (post == null)
             {
-                return (null, null);
+                return default;
             }
 
             return ((PostMetadata)post, post.Content);
@@ -30,7 +30,7 @@ namespace MyBigBadBlog.Data.Postgres
 
             if (post == null)
             {
-                return (null, null);
+                return default;
             }
 
             return ((PostMetadata)post, post.Content);

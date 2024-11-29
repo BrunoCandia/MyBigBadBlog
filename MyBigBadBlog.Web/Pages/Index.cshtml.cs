@@ -1,10 +1,12 @@
 using Markdig;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.OutputCaching;
 using MyBigBadBlog.Common;
 
 namespace MyBigBadBlog.Web.Pages
 {
+    [OutputCache(PolicyName = "Home")]
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
