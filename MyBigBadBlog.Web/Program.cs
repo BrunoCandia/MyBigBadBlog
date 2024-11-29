@@ -70,8 +70,8 @@ app.MapRazorPages();
 ////var pgRepository = app.Services.CreateScope().ServiceProvider.GetRequiredService<MyBigBadBlog.Common.IPostRepository>();
 ////var pgPsots = new List<(MyBigBadBlog.Common.PostMetadata, string)>
 ////{
-////    (new MyBigBadBlog.Common.PostMetadata("","This is my first post","Jhon Doe",DateTime.UtcNow), "This is the content of my first post. It's a very interesting post, I promise."),
-////    (new MyBigBadBlog.Common.PostMetadata("","I think I'll order some pizza","Jhon Doe",DateTime.UtcNow), "There's this really cool new pizza shop that opened down the street called Blazing Pizza. I think I'll give them a try")
+////    (new MyBigBadBlog.Common.PostMetadata(0,"This is my first post","Jhon Doe",DateTime.UtcNow), "This is the content of my first post. It's a very interesting post, I promise."),
+////    (new MyBigBadBlog.Common.PostMetadata(0,"I think I'll order some pizza","Jhon Doe",DateTime.UtcNow), "There's this really cool new pizza shop that opened down the street called Blazing Pizza. I think I'll give them a try")
 ////};
 
 ////foreach (var post in pgPsots)
