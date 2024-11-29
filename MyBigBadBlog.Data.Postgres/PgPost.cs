@@ -25,7 +25,7 @@ namespace MyBigBadBlog.Data.Postgres
         //Convert to PostMetadata from PgPost
         public static explicit operator PostMetadata(PgPost post)
         {
-            return new PostMetadata("", post.Title, post.Author, post.Date);
+            return new PostMetadata(post.Id, post.Title, post.Author, post.Date);
         }
 
         //Convert to PgPost from PostMetadata
@@ -33,6 +33,7 @@ namespace MyBigBadBlog.Data.Postgres
         {
             return new PgPost
             {
+                Id = post.Id,
                 Title = post.Title,
                 Author = post.Author,
                 Date = post.Date,

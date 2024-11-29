@@ -19,10 +19,10 @@ namespace MyBigBadBlog.Web.Pages
             MarkdownPipeline = new MarkdownPipelineBuilder().UseYamlFrontMatter().Build();
         }
 
-        public async Task<IActionResult> OnGetAsync(string slug)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
 
-            Post = await _postRepository.GetPostAsync(slug);
+            Post = await _postRepository.GetPostByIdAsync(id);
 
             if (Post == default)
             {
@@ -30,7 +30,19 @@ namespace MyBigBadBlog.Web.Pages
             }
 
             return Page();
-
         }
+
+        ////public async Task<IActionResult> OnGetAsync(string slug)
+        ////{
+
+        ////    Post = await _postRepository.GetPostAsync(slug);
+
+        ////    if (Post == default)
+        ////    {
+        ////        return NotFound();
+        ////    }
+
+        ////    return Page();
+        ////}
     }
 }

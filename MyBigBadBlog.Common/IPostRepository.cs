@@ -6,10 +6,12 @@
 
         Task<(PostMetadata, string)> GetPostAsync(string slug);
 
+        Task<(PostMetadata, string)> GetPostByIdAsync(int id);
+
         Task AddPostAsync(PostMetadata post, string content);
     }
 
-    public record PostMetadata(string Filename, string Title, string Author, DateTime Date)
+    public record PostMetadata(int Id, string Title, string Author, DateTime Date)
     {
         public string Slug => Uri.EscapeDataString(Title.ToLower());
 

@@ -24,6 +24,18 @@ namespace MyBigBadBlog.Data.Postgres
             return ((PostMetadata)post, post.Content);
         }
 
+        public async Task<(PostMetadata, string)> GetPostByIdAsync(int id)
+        {
+            var post = await _dbContext.Posts.FindAsync(id);
+
+            if (post == null)
+            {
+                return (null, null);
+            }
+
+            return ((PostMetadata)post, post.Content);
+        }
+
         public async Task<IEnumerable<(PostMetadata, string)>> GetPostsAsync(int count, int page)
         {
             var posts = await _dbContext.Posts

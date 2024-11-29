@@ -1,4 +1,5 @@
 ﻿@page
+@using Microsoft.AspNetCore.Components
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -12,7 +13,7 @@
 {
 	<div class="card">
 		<div class="card-body">
-			<h5 class="card-title"><a href="/p/@post.Metadata.Slug">@post.Metadata.Title</a></h5>
+			<h5 class="card-title"><a href="/p/@post.Metadata.Id">@post.Metadata.Title</a></h5>
 			<h6>by @post.Metadata.Author on @post.Metadata.Date.ToShortDateString()</h6>
 			<p class="card-text">@Html.Raw(Markdig.Markdown.ToHtml(post.Content, Model.MarkdownPipeline))</p>
 		</div>

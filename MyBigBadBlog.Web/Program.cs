@@ -1,3 +1,4 @@
+using MyBigBadBlog.Common;
 using MyBigBadBlog.Data.Postgres;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,6 +36,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.AddIdentity();
 
 ////builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
+
+// TODO: review why this is not needed.
+builder.Services.AddScoped<IPostRepository, PgRepository>();
 
 builder.Services.AddRazorPages();
 
