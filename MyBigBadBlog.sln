@@ -5,6 +5,16 @@ VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBigBadBlog.Web", "MyBigBadBlog.Web\MyBigBadBlog.Web.csproj", "{191504B8-1E7D-4892-ADC1-7891002FCE72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBigBadBlog.AppHost", "MyBigBadBlog.AppHost\MyBigBadBlog.AppHost.csproj", "{CC318FC1-3886-43FA-A5BD-0284A11B9A6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBigBadBlog.ServiceDefaults", "MyBigBadBlog.ServiceDefaults\MyBigBadBlog.ServiceDefaults.csproj", "{D77D6020-A56A-46A0-A24C-898CD17B47C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBigBadBlog.Common", "MyBigBadBlog.Common\MyBigBadBlog.Common.csproj", "{5E2A5D8B-9506-4C30-96BF-D86F497E2916}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBigBadBlog.Data.Postgres", "MyBigBadBlog.Data.Postgres\MyBigBadBlog.Data.Postgres.csproj", "{73767892-A071-4E98-BB61-D04472C8CF38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBigBadBlog.Service.DatabaseMigration", "MyBigBadBlog.Service.DatabaseMigration\MyBigBadBlog.Service.DatabaseMigration.csproj", "{C12F2563-B93E-4857-8EE8-F84968410C8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{191504B8-1E7D-4892-ADC1-7891002FCE72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{191504B8-1E7D-4892-ADC1-7891002FCE72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{191504B8-1E7D-4892-ADC1-7891002FCE72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC318FC1-3886-43FA-A5BD-0284A11B9A6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC318FC1-3886-43FA-A5BD-0284A11B9A6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC318FC1-3886-43FA-A5BD-0284A11B9A6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC318FC1-3886-43FA-A5BD-0284A11B9A6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D77D6020-A56A-46A0-A24C-898CD17B47C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D77D6020-A56A-46A0-A24C-898CD17B47C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D77D6020-A56A-46A0-A24C-898CD17B47C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D77D6020-A56A-46A0-A24C-898CD17B47C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E2A5D8B-9506-4C30-96BF-D86F497E2916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2A5D8B-9506-4C30-96BF-D86F497E2916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2A5D8B-9506-4C30-96BF-D86F497E2916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2A5D8B-9506-4C30-96BF-D86F497E2916}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73767892-A071-4E98-BB61-D04472C8CF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73767892-A071-4E98-BB61-D04472C8CF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73767892-A071-4E98-BB61-D04472C8CF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73767892-A071-4E98-BB61-D04472C8CF38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C12F2563-B93E-4857-8EE8-F84968410C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12F2563-B93E-4857-8EE8-F84968410C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12F2563-B93E-4857-8EE8-F84968410C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C12F2563-B93E-4857-8EE8-F84968410C8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
