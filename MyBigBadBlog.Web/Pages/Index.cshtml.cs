@@ -26,7 +26,11 @@ namespace MyBigBadBlog.Web.Pages
 
         public async Task<IActionResult> OnGetAsync()
         {
+            _logger.LogInformation("Start GetPostsAsync in front-end");
+
             Posts = await _postRepository.GetPostsAsync(10, 1);
+
+            _logger.LogInformation("End GetPostsAsync in front-end");
 
             return Page();
         }
