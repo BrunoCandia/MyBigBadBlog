@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyBigBadBlog.Common\MyBigBadBlog.Common.csproj" IsAspireProjectResource="false" />
     <ProjectReference Include="..\MyBigBadBlog.Service.DatabaseMigration\MyBigBadBlog.Service.DatabaseMigration.csproj" />
     <ProjectReference Include="..\MyBigBadBlog.Web\MyBigBadBlog.Web.csproj" />
   </ItemGroup>

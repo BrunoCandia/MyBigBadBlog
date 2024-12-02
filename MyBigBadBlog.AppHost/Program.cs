@@ -1,8 +1,10 @@
+using MyBigBadBlog.Common;
+
 var builder = DistributedApplication.CreateBuilder(args);
 
 #region Redis Cache
 
-var cache = builder.AddRedis("outputcache", 65028)
+var cache = builder.AddRedis(Constants.OUTPUTCACHE) ////optional port 65028
     .WithRedisCommander();
 
 #endregion
@@ -11,8 +13,8 @@ var cache = builder.AddRedis("outputcache", 65028)
 
 var dbPassword = builder.AddParameter("DatabasePassword", secret: true);
 
-var dbServer = builder.AddPostgres("dbServer", password: dbPassword);
-var db = dbServer.AddDatabase("MyBigBadBlog");
+var dbServer = builder.AddPostgres(Constants.DATABASESERVERNAME, password: dbPassword);
+var db = dbServer.AddDatabase(Constants.DATABASENAME);
 
 dbServer.WithDataVolume()
         .WithPgAdmin();
@@ -21,7 +23,7 @@ dbServer.WithDataVolume()
 
 #region Web Site
 
-builder.AddProject<Projects.MyBigBadBlog_Web>("mybigbadblog-web")
+builder.AddProject<Projects.MyBigBadBlog_Web>(Constants.WEB)
     .WithReference(cache)
     .WithReference(db)
     .WithExternalHttpEndpoints();
@@ -30,7 +32,7 @@ builder.AddProject<Projects.MyBigBadBlog_Web>("mybigbadblog-web")
 
 #region Worker Service
 
-builder.AddProject<Projects.MyBigBadBlog_Service_DatabaseMigration>("mybigbadblog-service-databasemigration")
+builder.AddProject<Projects.MyBigBadBlog_Service_DatabaseMigration>(Constants.DATABASEMIGRATION)
     .WithReference(db);
 
 #endregion

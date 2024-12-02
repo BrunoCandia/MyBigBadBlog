@@ -1,11 +1,12 @@
+using MyBigBadBlog.Common;
 using MyBigBadBlog.Data.Postgres;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
-builder.AddRedisOutputCache("outputcache");
-////builder.AddRedisOutputCache("outputcache",
+builder.AddRedisOutputCache(Constants.OUTPUTCACHE);
+////builder.AddRedisOutputCache(Constants.OUTPUTCACHE,
 ////    settings =>
 ////{
 ////    settings.ConnectionString = "localhost:6379";

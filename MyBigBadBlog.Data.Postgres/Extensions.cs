@@ -9,7 +9,7 @@ namespace MyBigBadBlog.Data.Postgres
     {
         public static IHostApplicationBuilder AddPostgresFeatures(this IHostApplicationBuilder hostApplicationBuilder)
         {
-            hostApplicationBuilder.AddNpgsqlDbContext<ApplicationDbContext>("MyBigBadBlog");
+            hostApplicationBuilder.AddNpgsqlDbContext<ApplicationDbContext>(Constants.DATABASENAME);
 
             hostApplicationBuilder.Services.AddScoped<IPostRepository, PgRepository>();
 

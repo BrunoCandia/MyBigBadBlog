@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using MyBigBadBlog.Common;
 using MyBigBadBlog.Data.Postgres;
 using MyBigBadBlog.Service.DatabaseMigration;
 
 var builder = Host.CreateApplicationBuilder(args);
 
 builder.AddServiceDefaults();
+
 builder.Services.AddHostedService<Worker>();
 
 ////builder.AddPostgresFeatures();
@@ -13,7 +15,7 @@ builder.Services.AddHostedService<Worker>();
 builder.Services.AddDbContext<ApplicationDbContext>(
     options =>
     {
-        options.UseNpgsql(builder.Configuration.GetConnectionString("MyBigBadBlog"));
+        options.UseNpgsql(builder.Configuration.GetConnectionString(Constants.DATABASENAME));
         options.ConfigureWarnings(warnings => warnings.Log(RelationalEventId.PendingModelChangesWarning));
     });
 
