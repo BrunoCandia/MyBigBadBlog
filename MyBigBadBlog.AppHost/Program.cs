@@ -11,8 +11,8 @@ var cache = builder.AddRedis(Constants.OUTPUTCACHE) ////optional port 65028
 
 #region Postgres Database
 
-var dbPassword = builder.AddParameter("DatabasePassword", secret: true);
-var db = builder.AddPostgres(Constants.DATABASESERVERNAME, password: dbPassword)
+var postgresPassword = builder.AddParameter("postgresPassword", secret: true);
+var db = builder.AddPostgres(Constants.DATABASESERVERNAME, password: postgresPassword)
     .WithDataVolume()
     .WithPgAdmin()
     .AddDatabase(Constants.DATABASENAME);
