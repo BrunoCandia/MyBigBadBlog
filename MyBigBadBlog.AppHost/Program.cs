@@ -12,12 +12,16 @@ var cache = builder.AddRedis(Constants.OUTPUTCACHE) ////optional port 65028
 #region Postgres Database
 
 var dbPassword = builder.AddParameter("DatabasePassword", secret: true);
+var db = builder.AddPostgres(Constants.DATABASESERVERNAME, password: dbPassword)
+    .WithDataVolume()
+    .WithPgAdmin()
+    .AddDatabase(Constants.DATABASENAME);
 
-var dbServer = builder.AddPostgres(Constants.DATABASESERVERNAME, password: dbPassword);
-var db = dbServer.AddDatabase(Constants.DATABASENAME);
+////var dbServer = builder.AddPostgres(Constants.DATABASESERVERNAME, password: dbPassword);
+////var db = dbServer.AddDatabase(Constants.DATABASENAME);
 
-dbServer.WithDataVolume()
-        .WithPgAdmin();
+////dbServer.WithDataVolume()
+////        .WithPgAdmin();
 
 #endregion
 
@@ -25,7 +29,9 @@ dbServer.WithDataVolume()
 
 builder.AddProject<Projects.MyBigBadBlog_Web>(Constants.WEB)
     .WithReference(cache)
+    .WaitFor(cache)
     .WithReference(db)
+    .WaitFor(db)
     .WithExternalHttpEndpoints();
 
 #endregion
@@ -33,7 +39,8 @@ builder.AddProject<Projects.MyBigBadBlog_Web>(Constants.WEB)
 #region Worker Service
 
 builder.AddProject<Projects.MyBigBadBlog_Service_DatabaseMigration>(Constants.DATABASEMIGRATION)
-    .WithReference(db);
+    .WithReference(db)
+    .WaitFor(db);
 
 #endregion
 

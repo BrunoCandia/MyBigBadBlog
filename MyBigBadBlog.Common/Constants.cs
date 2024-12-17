@@ -6,10 +6,10 @@
 
         public const string OUTPUTCACHE = "outputcache";
 
-        public const string DATABASESERVERNAME = "dbServer";
+        public const string DATABASESERVERNAME = "db-server";
 
         public const string DATABASENAME = "MyBigBadBlog";
 
-        public const string DATABASEMIGRATION = "mybigbadblog-service-databasemigration";
+        public const string DATABASEMIGRATION = "database-migration";
     }
 }
