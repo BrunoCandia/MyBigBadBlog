@@ -3,6 +3,20 @@ using MyBigBadBlog.Data.Postgres;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
+////var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+////builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+////builder.AddNpgsqlDbContext<ApplicationDbContext>("MyBigBadBlog");
+
+builder.AddPostgresFeatures();
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.AddIdentity();
+
+////builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.AddServiceDefaults();
 
 builder.AddRedisOutputCache(Constants.OUTPUTCACHE);
@@ -23,20 +37,6 @@ builder.Services.AddOutputCache(options =>
     options.AddPolicy("Post", policy => policy.Tag("Post").SetVaryByRouteValue("id").Expire(TimeSpan.FromSeconds(30)));
     ////options.AddPolicy("Post", policy => policy.Tag("Post").SetVaryByRouteValue("slug").Expire(TimeSpan.FromSeconds(30)));
 });
-
-// Add services to the container.
-////var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-////builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
-
-////builder.AddNpgsqlDbContext<ApplicationDbContext>("MyBigBadBlog");
-
-builder.AddPostgresFeatures();
-
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-builder.AddIdentity();
-
-////builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddRazorPages();
 
